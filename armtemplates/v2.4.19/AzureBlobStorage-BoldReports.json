@@ -25,6 +25,10 @@
         "description": "Type of the storage account created"
       },
       "defaultValue": "Standard_LRS"
+    },
+    "utcShortValue": {
+      "type": "string",
+      "defaultValue": "[utcNow('d')]"
     }
   },
   "variables": {
@@ -40,7 +44,18 @@
       "apiVersion": "2014-06-01",
       "dependsOn": [],
       "tags": {
-        "displayName": "AppSvcPlan"
+        "displayName": "AppSvcPlan",
+        "AppName": "[resourceGroup().tags['AppName']]",
+        "Approver": "[resourceGroup().tags['Approver']]",
+        "BusinessUnit": "[resourceGroup().tags['BusinessUnit']]",
+        "Env": "[resourceGroup().tags['Env']]",
+        "HostModel": "[resourceGroup().tags['HostModel']]",
+        "Importance": "[resourceGroup().tags['Importance']]",
+        "Owner": "[resourceGroup().tags['Owner']]",
+        "Platform": "NA",
+        "ProductName": "[resourceGroup().tags['ProductName']]",
+        "Requester": "velmurugan.thangaraj@syncfusion.com",
+        "StartDate": "[parameters('utcShortValue')]"
       },
       "properties": {
         "name": "[variables('WebAppSvcPlanName')]",
@@ -58,7 +73,18 @@
       ],
       "tags": {
         "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('WebAppSvcPlanName'))]": "Resource",
-        "displayName": "WebApp"
+        "displayName": "WebApp",
+        "AppName": "[resourceGroup().tags['AppName']]",
+        "Approver": "[resourceGroup().tags['Approver']]",
+        "BusinessUnit": "[resourceGroup().tags['BusinessUnit']]",
+        "Env": "[resourceGroup().tags['Env']]",
+        "HostModel": "[resourceGroup().tags['HostModel']]",
+        "Importance": "[resourceGroup().tags['Importance']]",
+        "Owner": "[resourceGroup().tags['Owner']]",
+        "Platform": "NA",
+        "ProductName": "[resourceGroup().tags['ProductName']]",
+        "Requester": "velmurugan.thangaraj@syncfusion.com",
+        "StartDate": "[parameters('utcShortValue')]"
       },
       "properties": {
         "name": "[parameters('WebAppName')]",
@@ -122,7 +148,7 @@
             "[resourceId('Microsoft.Web/Sites', parameters('WebAppName'))]"
           ],
           "properties": {
-            "RepoUrl": "https://github.com/boldreports/bold-reports-azure.git",
+            "RepoUrl": "https://github.com/velmuruganthangaraj/bold-reports-azure.git",
             "branch": "v2.4.19",
             "IsManualIntegration": true
           }
@@ -162,7 +188,18 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [],
       "tags": {
-        "displayName": "storageaccount"
+        "displayName": "storageaccount",
+        "AppName": "[resourceGroup().tags['AppName']]",
+        "Approver": "[resourceGroup().tags['Approver']]",
+        "BusinessUnit": "[resourceGroup().tags['BusinessUnit']]",
+        "Env": "[resourceGroup().tags['Env']]",
+        "HostModel": "[resourceGroup().tags['HostModel']]",
+        "Importance": "[resourceGroup().tags['Importance']]",
+        "Owner": "[resourceGroup().tags['Owner']]",
+        "Platform": "NA",
+        "ProductName": "[resourceGroup().tags['ProductName']]",
+        "Requester": "velmurugan.thangaraj@syncfusion.com",
+        "StartDate": "[parameters('utcShortValue')]"
       },
       "properties": {
         "accountType": "[parameters('storageAccountType')]"
